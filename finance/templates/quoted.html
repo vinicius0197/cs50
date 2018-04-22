@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Quoted
+{% endblock %}
+
+{% block main %}
+
+<style>
+#stocks {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#stocks td, #stocks th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#stocks tr:nth-child(even){background-color: #f2f2f2;}
+
+#stocks tr:hover {background-color: #ddd;}
+
+#stocks th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
+	<table id="stocks" method = "post">
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Symbol</th>
+		</tr>
+		<tr>
+			<td>{{ name }}</td>
+			<td>{{ price }}</td>
+			<td>{{ symbol }}</td>
+		</tr>
+	</table>
+
+{% endblock %}

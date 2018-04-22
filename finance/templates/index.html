@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Index
+{% endblock %}
+
+{% block main %}
+
+<style>
+#portfolio {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#portfolio td, #portfolio th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#portfolio tr:nth-child(even){background-color: #f2f2f2;}
+
+#portfolio tr:hover {background-color: #ddd;}
+
+#portfolio th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
+
+	<table id="portfolio">
+		<tr>
+			<th>Symbol</th>
+			<th>Stock</th>
+			<th>Shares</th>
+			<th>Price</th>
+			<th>TOTAL</th>
+		</tr>
+		{% for stock in stocks %}
+		<tr>
+			<td>{{stock['symbol']}}</td>
+			<td>{{stock['stock']}}</td>
+			<td>{{stock[11]}}</td>
+			<td>${{(current_price[loop.index -1])|round(2, 'common')}}</td>
+			<td>${{(stock[11]*current_price[loop.index -1])|round(2, 'common')}}</td>
+		</tr>
+		{% endfor %}	
+	</table>
+		<h3>CASH: ${{(cash['cash'])|round(2, 'common')}}</h3>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Buy
+{% endblock %}
+
+{% block main %}
+	<form action method="post">
+	<fieldset>
+		<label>
+			<input type="text" name="stock symbol" placeholder="Stock symbol">
+		</label>
+		<label>
+			<input type="text" name="qty" placeholder="Quantity">
+		</label>
+		<label>
+			<button class="btn btn-default" type="submit">Buy</button>
+		</label>
+	</fieldset>
+	</form>
+{% endblock %}
